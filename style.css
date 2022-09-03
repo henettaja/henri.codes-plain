@@ -1,0 +1,18 @@
+main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+.box {
+    max-width: 1600px;
+    max-height: 1600%;
+
+
+    background-color: aliceblue;
+    border-radius: 1.5rem;
+
+    padding: 5%;
+    }
