@@ -1,18 +1,168 @@
-main {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+:root {
+  --gradient-light: linear-gradient(75deg, #8e7ceb, #ffbcc3, #ffcf6e);
+  --gradient-dark: linear-gradient(75deg, #5433ff, #e17782, #f9bd45);
 
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  --marquee-animation-speed: 20s;
+  --marquee-animation-delay: calc(var(--marquee-animation-speed) / 2);
+
+  --bg-light: #fff2f2;
+  --bg-lighter: #fff2f2;
+  --bg-dark: #171a24;
+  --bg-darker: #171a24;
+  --text-light: #9b5c65;
+  --text-lighter: #75373f;
+  --text-dark: #b1b8cc;
+  --text-darker: #8b93ac;
 }
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(-0%);
+  }
+  100% {
+    transform: translateX(-220%);
+  }
+}
+
+main {
+  min-height: 100%;
+  padding-bottom: 2.5rem;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--bg-lighter);
+
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+section {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.marquee-heading {
+  position: relative;
+  top: 10px;
+  display: grid;
+  grid-template-columns: 100vw 100vw;
+  width: 100%;
+  line-height: 1;
+}
+
+.marquee-heading {
+  transition: 0.2s;
+  font-size: 10rem;
+  background-image: var(--gradient-light);
+  background-clip: text;
+  color: transparent;
+  animation: bg-animation 25s linear infinite;
+  background-size: 300%;
+}
+
+h1#first {
+  user-select: none;
+  position: relative;
+  width: fit-content;
+  grid-column: 2;
+  grid-row: 1;
+
+  animation: move var(--marquee-animation-speed) linear infinite;
+}
+
+h1#second {
+  position: relative;
+  width: fit-content;
+  grid-column: 2;
+  grid-row: 1;
+
+  animation: move var(--marquee-animation-speed) linear
+    var(--marquee-animation-delay) infinite;
+}
+
 .box {
-    max-width: 1600px;
-    max-height: 1600%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 
+  max-width: 30rem;
+  max-height: 1600%;
 
-    background-color: aliceblue;
-    border-radius: 1.5rem;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  border-radius: 1rem;
 
-    padding: 5%;
-    }
+  padding: 1% 2%;
+  margin: 1% 5%;
+}
+
+.box > h2 {
+  align-self: center;
+}
+
+a {
+  color: var(--text-lighter);
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  color: color-mix(in srgb, var(--text-light) 10%, white);
+}
+
+a:visited {
+  color: var(--text-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  main {
+    background-color: var(--bg-darker);
+  }
+
+  .marquee-heading {
+    background-image: var(--gradient-dark);
+  }
+
+  .box {
+    background-color: var(--bg-dark);
+    color: var(--text-darker);
+  }
+
+  a {
+    color: var(--text-dark);
+    font-weight: bolder;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:active {
+    color: var(--text-dark);
+  }
+
+  a:visited {
+    color: var(--text-dark);
+  }
+}
