@@ -68,10 +68,16 @@
   }
 }
 
-html {
-  min-height: 100%;
-  max-width: 100vw;
+html,
+body {
   overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  background-color: var(--bg-lighter);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 main {
@@ -88,13 +94,6 @@ main {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-}
-
-body {
-  background-color: var(--bg-lighter);
-
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
 }
 
 section {
