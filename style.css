@@ -132,9 +132,9 @@ section {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  -webkit-animation: bg-animation 25s linear infinite;
+  /* -webkit-animation: bg-animation 25s linear infinite;
   animation: bg-animation 25s linear infinite;
-  background-size: 300%;
+  background-size: 300%; */
 }
 
 h1#first {
