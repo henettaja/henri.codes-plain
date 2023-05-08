@@ -1,15 +1,8 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
 :root {
   --gradient-light: linear-gradient(75deg, #8e7ceb, #ffbcc3, #ffcf6e);
   --gradient-dark: linear-gradient(75deg, #5433ff, #e17782, #f9bd45);
 
-  --marquee-animation-speed: 20s;
+  --marquee-animation-speed: 30s;
   --marquee-animation-delay: calc(var(--marquee-animation-speed) / 2);
 
   --bg-light: #fff2f2;
@@ -46,24 +39,11 @@
   }
 }
 
-@-webkit-keyframes move {
-  0% {
-    -webkit-transform: translateX(-0%);
-    transform: translateX(-0%);
-  }
-  100% {
-    -webkit-transform: translateX(-220%);
-    transform: translateX(-220%);
-  }
-}
-
 @keyframes move {
   0% {
-    -webkit-transform: translateX(-0%);
     transform: translateX(-0%);
   }
   100% {
-    -webkit-transform: translateX(-220%);
     transform: translateX(-220%);
   }
 }
@@ -84,56 +64,38 @@ main {
   min-height: 100%;
   padding-bottom: 2.5rem;
 
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
+
+  background-image: var(--gradient-light);
+  animation: bg-animation 25s linear infinite;
+  background-size: 300%;
 }
 
 section {
+  margin-top: auto;
+  margin-bottom: auto;
   position: sticky;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   gap: 1rem;
 }
 
 .marquee-heading {
+  margin-top: auto;
+  margin-bottom: auto;
   position: relative;
-  top: 10px;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 100vw 100vw;
   grid-template-columns: 100vw 100vw;
   width: 100%;
   line-height: 1;
 }
 
 .marquee-heading {
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
-  transition: 0.2s;
   font-size: 10rem;
-  background-image: var(--gradient-light);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  /* -webkit-animation: bg-animation 25s linear infinite;
-  animation: bg-animation 25s linear infinite;
-  background-size: 300%; */
+  color: var(--text-light);
 }
 
 h1#first {
@@ -142,31 +104,22 @@ h1#first {
   -ms-user-select: none;
   user-select: none;
   position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   -ms-grid-column: 2;
   grid-column: 2;
   -ms-grid-row: 1;
   grid-row: 1;
-
-  -webkit-animation: move var(--marquee-animation-speed) linear infinite;
 
   animation: move var(--marquee-animation-speed) linear infinite;
 }
 
 h1#second {
   position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   -ms-grid-column: 2;
   grid-column: 2;
   -ms-grid-row: 1;
   grid-row: 1;
-
-  -webkit-animation: move var(--marquee-animation-speed) linear
-    var(--marquee-animation-delay) infinite;
 
   animation: move var(--marquee-animation-speed) linear
     var(--marquee-animation-delay) infinite;
@@ -185,16 +138,15 @@ h1#second {
   max-width: 30rem;
   max-height: 1600%;
 
+  background-color: var(--bg-light);
   color: var(--text-light);
   border-radius: 1rem;
 
-  padding: 1% 2%;
-  margin: 1% 5%;
+  padding: 1rem 2rem;
+  margin: 1rem 2rem;
 }
 
 .box > h2 {
-  -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
 }
 
@@ -218,11 +170,11 @@ a:visited {
 
 @media (prefers-color-scheme: dark) {
   main {
-    background-color: var(--bg-darker);
+    background-image: var(--gradient-dark);
   }
 
   .marquee-heading {
-    background-image: var(--gradient-dark);
+    color: var(--bg-dark);
   }
 
   .box {
